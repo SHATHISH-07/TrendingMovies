@@ -3,7 +3,7 @@ import NavBar from "./Components/NavBar";
 import "./App.css";
 import Movies from "./Components/Movies";
 import WatchList from "./Components/WatchList";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [watchlist, setWatchList] = useState([]);
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <NavBar />
 
         <Routes>
@@ -57,7 +57,7 @@ function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
