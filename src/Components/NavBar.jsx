@@ -10,7 +10,7 @@ const NavBar = () => {
       <img className="w-[45px]" src={Logo} alt="NavLogo" />
       <Link
         to="/"
-        className={`text-3xl font-bold ${
+        className={` text-xl sm:text-3xl font-bold ${
           location.pathname === "/" ? "underline" : ""
         }`}
       >
@@ -18,7 +18,7 @@ const NavBar = () => {
       </Link>
       <Link
         to="/WatchList"
-        className={`text-3xl font-bold ${
+        className={`text-xl sm:text-3xl font-bold ${
           location.pathname === "/WatchList" ? "underline" : ""
         }`}
       >

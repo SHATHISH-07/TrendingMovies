@@ -57,7 +57,7 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
 
   return (
     <>
-      <div className="flex justify-center flex-wrap m-5">
+      <div className="flex justify-center flex-wrap m-5 ">
         {genreList.map((genre) => {
           return (
             <div
@@ -66,8 +66,8 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
               }}
               className={
                 currGenre === genre
-                  ? "h-[3rem] w-[7rem] bg-blue-500 bg-opacity-70 flex justify-center items-center text-white rounded-lg font-bold mr-4 cursor-pointer"
-                  : "h-[3rem] w-[7rem] bg-black bg-opacity-70 flex justify-center items-center text-white rounded-lg font-bold mr-4 cursor-pointer"
+                  ? "h-[3rem] w-[7rem] m-3 bg-blue-500 bg-opacity-70 flex justify-center items-center text-white rounded-lg font-bold mr-4 cursor-pointer"
+                  : "h-[3rem] w-[7rem] m-3 bg-black bg-opacity-70 flex justify-center items-center text-white rounded-lg font-bold mr-4 cursor-pointer"
               }
             >
               {genre}
@@ -92,7 +92,7 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
             <tr>
               <th className="w-1/5">Name</th>
 
-              <th className="w-1/5 ">
+              <th className="w-1/5 hidden sm:block ">
                 <span className="cursor-pointer" onClick={sortIncrease}>
                   <i class="fa-solid fa-arrow-up"></i>
                 </span>
@@ -102,11 +102,11 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                 </span>
               </th>
 
-              <th className="w-1/5 ">
+              <th className="w-1/5 hidden sm:block  ">
                 <span className="cursor-pointer" onClick={sortIncreasePop}>
                   <i class="fa-solid fa-arrow-up"></i>
                 </span>
-                <span className="m-2">Popularity</span>
+                <span className="m-2 hidden sm:block ">Popularity</span>
                 <span className="cursor-pointer" onClick={sortDecreasePop}>
                   <i class="fa-solid fa-arrow-down"></i>
                 </span>
@@ -144,11 +144,13 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                         </div>
                       </div>
                     </td>
-                    <td className="font-bold">
+                    <td className="font-bold hidden sm:block ">
                       {Math.round(movieObj.vote_average * 10) / 10}
                     </td>
 
-                    <td className="font-bold">{movieObj.popularity}</td>
+                    <td className="font-bold hidden sm:block ">
+                      {movieObj.popularity}
+                    </td>
 
                     <td className="font-bold">
                       {genreIds[movieObj.genre_ids[0]]}
