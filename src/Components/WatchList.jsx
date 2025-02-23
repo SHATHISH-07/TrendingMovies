@@ -88,36 +88,40 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
         />
       </div>
 
-      <div className=" rounded-lg overflow-hidden border border-gray-300 m-8">
+      <div className=" rounded-lg overflow-hidden border border-gray-300 ">
         <table className="w-full text-gray-600 text-center table-fixed">
           <thead className="border-b-2">
             <tr>
               <th className="w-1/5">Name</th>
 
-              <th className="w-1/5 hidden sm:block flex items-center justify-center">
-                <span className="cursor-pointer" onClick={sortIncrease}>
-                  <i className="fa-solid fa-arrow-up"></i>
-                </span>
-                <span className="m-2">Rating</span>
-                <span className="cursor-pointer" onClick={sortDecrease}>
-                  <i className="fa-solid fa-arrow-down"></i>
-                </span>
+              <th className="w-1/5 hidden md:table-cell ">
+                <div className="flex items-center justify-center">
+                  <span className="cursor-pointer" onClick={sortIncrease}>
+                    <i className="fa-solid fa-arrow-up inline-block"></i>
+                  </span>
+                  <span className="m-2">Rating</span>
+                  <span className="cursor-pointer" onClick={sortDecrease}>
+                    <i className="fa-solid fa-arrow-down inline-block"></i>
+                  </span>
+                </div>
               </th>
-
-              <th className="w-1/5 hidden sm:block flex items-center justify-center">
-                <span className="cursor-pointer" onClick={sortIncreasePop}>
-                  <i className="fa-solid fa-arrow-up"></i>
-                </span>
-                <span className="m-2 hidden sm:block">Popularity</span>
-                <span className="cursor-pointer" onClick={sortDecreasePop}>
-                  <i className="fa-solid fa-arrow-down"></i>
-                </span>
+              <th className="w-1/5 hidden md:table-cell ">
+                <div className="flex items-center justify-center">
+                  <span className="cursor-pointer" onClick={sortIncreasePop}>
+                    <i className="fa-solid fa-arrow-up"></i>
+                  </span>
+                  <span className="m-2">Popularity</span>
+                  <span className="cursor-pointer" onClick={sortDecreasePop}>
+                    <i className="fa-solid fa-arrow-down"></i>
+                  </span>
+                </div>
               </th>
 
               <th className="w-1/5">Genre</th>
               <th className="w-1/5">Delete</th>
             </tr>
           </thead>
+
           <tbody>
             {watchlist
               .filter((movieObj) => {
@@ -138,7 +142,7 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                     <td className="text-center p-2">
                       <div className="flex flex-col items-center">
                         <img
-                          className="w-[8rem] h-[10rem]"
+                          className="w-[100%] sm:w-[8rem] h-[10rem]"
                           src={`https://image.tmdb.org/t/p/original/${movieObj.poster_path}`}
                         />
                         <div className="mt-2 font-bold">
@@ -146,12 +150,16 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                         </div>
                       </div>
                     </td>
-                    <td className="font-bold hidden sm:block ">
-                      {Math.round(movieObj.vote_average * 10) / 10}
+                    <td className="text-center font-bold hidden md:table-cell">
+                      {movieObj.vote_average
+                        ? Math.round(movieObj.vote_average * 10) / 10
+                        : "N/A"}
                     </td>
 
-                    <td className="font-bold hidden sm:block ">
-                      {movieObj.popularity}
+                    <td className="text-center font-bold hidden md:table-cell">
+                      {movieObj.popularity
+                        ? movieObj.popularity.toFixed(2)
+                        : "N/A"}
                     </td>
 
                     <td className="font-bold">
