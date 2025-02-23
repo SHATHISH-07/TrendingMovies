@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import genreIds from "../Utility/genre";
 
 const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
@@ -58,9 +59,10 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
   return (
     <>
       <div className="flex justify-center flex-wrap m-5 ">
-        {genreList.map((genre) => {
+        {genreList.map((genre, index) => {
           return (
             <div
+              key={index}
               onClick={() => {
                 handleFilter(genre);
               }}
@@ -94,21 +96,21 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
 
               <th className="w-1/5 hidden sm:block ">
                 <span className="cursor-pointer" onClick={sortIncrease}>
-                  <i class="fa-solid fa-arrow-up"></i>
+                  <i className="fa-solid fa-arrow-up"></i>
                 </span>
                 <span className="m-2">Rating</span>
                 <span className="cursor-pointer" onClick={sortDecrease}>
-                  <i class="fa-solid fa-arrow-down"></i>
+                  <i className="fa-solid fa-arrow-down"></i>
                 </span>
               </th>
 
               <th className="w-1/5 hidden sm:block  ">
                 <span className="cursor-pointer" onClick={sortIncreasePop}>
-                  <i class="fa-solid fa-arrow-up"></i>
+                  <i className="fa-solid fa-arrow-up"></i>
                 </span>
                 <span className="m-2 hidden sm:block ">Popularity</span>
                 <span className="cursor-pointer" onClick={sortDecreasePop}>
-                  <i class="fa-solid fa-arrow-down"></i>
+                  <i className="fa-solid fa-arrow-down"></i>
                 </span>
               </th>
 
@@ -130,9 +132,9 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                   .toLowerCase()
                   .includes(search.toLowerCase());
               })
-              .map((movieObj) => {
+              .map((movieObj, index) => {
                 return (
-                  <tr className="border-b-2">
+                  <tr className="border-b-2" key={index}>
                     <td className="text-center p-2">
                       <div className="flex flex-col items-center">
                         <img
@@ -160,7 +162,7 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                       className="text-red-800 font-bold cursor-pointer text-[1.5rem]"
                       onClick={() => handleRemoveFromWatchList(movieObj)}
                     >
-                      <i class="fa-solid fa-trash-can"></i>
+                      <i className="fa-solid fa-trash-can"></i>
                     </td>
                   </tr>
                 );

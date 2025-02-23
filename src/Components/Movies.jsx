@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import Banner from "./Banner";
 import axios from "axios";
@@ -87,5 +88,3 @@ const Movies = ({
 };
 
 export default Movies;
-
-// https://api.themoviedb.org/3/movie/popular?api_key=6ea705692e8ad2f4c1175e3308638d71&language=en-US&page=2

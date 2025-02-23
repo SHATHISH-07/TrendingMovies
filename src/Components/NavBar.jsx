@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "../MovieLogo.png";
 import { Link, useLocation } from "react-router-dom";
 
