@@ -94,7 +94,7 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
             <tr>
               <th className="w-1/5">Name</th>
 
-              <th className="w-1/5 hidden sm:block ">
+              <th className="w-1/5 hidden sm:block flex items-center justify-center">
                 <span className="cursor-pointer" onClick={sortIncrease}>
                   <i className="fa-solid fa-arrow-up"></i>
                 </span>
@@ -104,11 +104,11 @@ const WatchList = ({ watchlist, handleRemoveFromWatchList, setWatchList }) => {
                 </span>
               </th>
 
-              <th className="w-1/5 hidden sm:block  ">
+              <th className="w-1/5 hidden sm:block flex items-center justify-center">
                 <span className="cursor-pointer" onClick={sortIncreasePop}>
                   <i className="fa-solid fa-arrow-up"></i>
                 </span>
-                <span className="m-2 hidden sm:block ">Popularity</span>
+                <span className="m-2 hidden sm:block">Popularity</span>
                 <span className="cursor-pointer" onClick={sortDecreasePop}>
                   <i className="fa-solid fa-arrow-down"></i>
                 </span>
